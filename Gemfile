@@ -26,4 +26,5 @@ group :test do
   gem 'simplecov',   require: false
   gem 'sinatra-contrib'
   gem "codeclimate-test-reporter", group: :test, require: nil
+  gem "travis", '~> 1.8.0'
 end
