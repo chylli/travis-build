@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+#source 'https://rubygems.org'
+source 'https://ruby.taobao.org/'
 
 ruby File.read(File.expand_path('../.ruby-version', __FILE__)).strip if ENV.key?('DYNO')
 
