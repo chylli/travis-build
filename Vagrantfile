@@ -25,6 +25,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     apt-get install -y git libssl-dev
   EOF
 
+  config.vm.synced_folder "home/root", "/root", owner: "root", group: "root"
+  config.vm.synced_folder "home/git", "/home/git", owner: "nobody", group: "nogroup"
+  
   config.vm.provision "shell", privileged: false, inline: <<-EOF
     set -e
     if ! [[ -d ~/.rubies/ruby-2.1.2 ]]; then
@@ -43,6 +46,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     gem install bundler
     bundle install --gemfile=/vagrant/Gemfile
     mkdir ~/.travis
-    ln -s /vagrant ~/.travis/travis-build
+    ln -sf /vagrant ~/.travis/travis-build
   EOF
 end
