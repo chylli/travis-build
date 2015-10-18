@@ -42,5 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     gem install bundler
     bundle install --gemfile=/vagrant/Gemfile
+    mkdir ~/.travis
+    ln -s /vagrant ~/.travis/travis-build
   EOF
 end
